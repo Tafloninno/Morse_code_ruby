@@ -11,15 +11,20 @@ def decode_char(morse_code)
   morse_dict[morse_code].upcase
 end
 
-def decode(sentence)
+def decode_word(word)
   decoded_word = ''
-  sentence.split('   ').each do |word|
-    word.split.each do |char|
-      decoded_word += decode_char(char)
-    end
-    decoded_word += ' '
+  word.split.each do |char|
+    decoded_word += decode_char(char)
   end
-  decoded_word.strip
+  decoded_word
+end
+
+def decode(message)
+  decoded_message = ''
+  message.split('   ').each do |word|
+    decoded_message += "#{decode_word(word)} "
+  end
+  decoded_message.strip
 end
 
 puts decode('      .-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
