@@ -41,3 +41,5 @@ def decode(sentence)
   end
   return decoded_word.strip
 end
+
+puts decode('      .-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
